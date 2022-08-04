@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+  login:
+    container_name: trabajo-integrador-eshs
+    image: practica2
+    restart: always
+    volumes:
+      - "./python_login/www/:/www/"
+    ports:
+      - 42069:8888

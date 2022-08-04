@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+  <p>Estás logueado... pero no de la manera correcta!</p>
+  <a id="log" href="/logout">Logout</a> <br> <br>
+{% elif session['carlos_logged_in'] %}
+  <p>Estás logueado de la manera correcta</p>
+  <a id="log" href="/">Menu</a> <br> <br>
+{% else %}
+  <h2>Login Carlos</h2>
+  <form action="/loginCarlos" method="POST">
+    <input type="username" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <input id="loggin" type="submit" value="Log in">
+  </form>
+{% if error %}
+<div class="error_div">
+  <p class="error_div">{{error}}</p>
+</div>
+{% endif %}
+
+{% endif %}
+{% endblock %}

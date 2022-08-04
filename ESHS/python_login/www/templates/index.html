@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if session['logged_in'] %}
+   <p id="mensaje">Yo tengo un amigo que se llama...</p>
+		<h1>Carlos</h1>
+	<a id="log" href="/logout">Logout</a> <br> <br>
+
+{% else %}
+	<p id="mensaje">Usuario no autenticado</p>
+	<a id="log" href="/login">Login</a> 
+{% endif %}
+
+
+{% endblock %}

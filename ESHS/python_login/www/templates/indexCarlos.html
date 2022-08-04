@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['carlos_logged_in'] %}
+
+	<p id="mensaje">Usted ha terminado su ataque bruteforceando con diccionario! </p>
+
+
+	<h1><a href="/infoUsuario?username=su">Felicidades</h1>
+
+
+
+	<a id="log" href="/logoutCarlos">Logout</a> <br> <br>
+
+{% else %}
+<p id="mensaje">Usuario no autenticado</p>
+
+<a id="log" href="/login">Login</a> 
+
+{% endif %}
+{% endblock %}

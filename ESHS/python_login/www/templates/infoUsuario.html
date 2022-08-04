@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<!--Users lists-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Información de un usuario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Info de SU usuario: ({{user.username if user else "flag{c4si_br0}"}})</h1>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% if user %} <!--para  que no crashee la app con las querys con user no valido-->
+                                <td>{{user.username[:10]}}</td>
+                                <td><a href="mailto:{{user.email}}"/>{{user.email[:30]}}</td> <!--Para joder, 30 caracteres solo-->
+                            {% endif %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--mensaje de error-->
+        {% if error %}
+            <div class="error_div">
+                <p class="error_div">{{error}}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+{% endblock %}
