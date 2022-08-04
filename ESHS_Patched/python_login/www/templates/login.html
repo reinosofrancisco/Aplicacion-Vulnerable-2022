@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+  <p>Ya tas logueado ;3</p>
+  <a href="/logout"> log out</a> <br>
+  <a id="log" href="/">Menu</a> <br> <br>
+{% else %}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <h2>Login</h2>
+  <form action="/login" method="POST">
+    <input type="username" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <div class="g-recaptcha" data-sitekey="6LcEx6UgAAAAAFdJIMNnf5YWlMLEZV-N5iT3fZtS"></div>
+    <input id="loggin" type="submit" value="Log in">
+  </form>
+{% if error %}
+  <p style="color:rgb(0, 0, 0)">{{error}}</p>
+{% endif %}
+
+<!--pistita full basica: QjZjYXRLSDZEZlVUZFFvMWRvMWZzc1lrekMyeXp0WERrVTVvNlpERWlsd2dFR2NBZ24xZVJDMlZZckhLemQ3ZXVW-->
+
+{% endif %}
+{% endblock %}

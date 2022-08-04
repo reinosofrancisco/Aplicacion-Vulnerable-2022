@@ -1,0 +1,5 @@
+Flask
+Flask-SQLAlchemy
+requests
+flask_sqlalchemy
+passlib

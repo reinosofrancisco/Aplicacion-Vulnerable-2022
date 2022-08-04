@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+
+	<p id="mensaje">Usted se ha loggeado con exito! </p>
+
+
+	<h1><a href="/infoUsuario?">Informacion de su usuario</h1>
+
+
+
+	<a id="log" href="/logout">Logout</a> <br> <br>
+
+{% else %}
+<p id="mensaje">Usuario no autenticado</p>
+
+<a id="log" href="/login">Login</a> 
+
+{% endif %}
+{% endblock %}
