@@ -1,4 +1,9 @@
-# Aplicacion Web Vulnerable
+<div align="center">
+  <h2><strong>Aplicacion Web Vulnerable - Equipo ESHS - DSA</strong></h2>
+  
+  <a href="https://github.com/reinosofrancisco/Aplicacion-Vulnerable-2022"><img src="https://img.shields.io/badge/DSA-v1.0-blue?style=plastic&logo=github"/></a>   
+
+
 
 <table>
   <tr>
@@ -22,6 +27,7 @@
     <td>Francisco</td>
   </tr>
 </table>
+
 
 ---
 
@@ -92,7 +98,7 @@ Volver a ejecutar `./run.sh` para correr la aplicacion. <br>
 
 ## ¿Como explotar la vulnerabilidad?
 
-1. Vulnerabilidad en el `/login` <br>
+Vulnerabilidad en el `/login` <br>
    El usuario ingresa con credenciales por defecto. <br>
    Estas credenciales son las que se utilizan para el login: <br>
     <table>
@@ -106,7 +112,7 @@ Volver a ejecutar `./run.sh` para correr la aplicacion. <br>
       </tr>
     </table>
 
-2. Vulnerabilidad en el `/loginCarlos` <br>
+Vulnerabilidad en el `/loginCarlos` <br>
    El usuario ingresa con credenciales por muy usuales. <br>
    Si bien el usuario es medianamente mas rebuscado, sigue siendo el usuario por defecto en varias aplicaciones. <br>
    Estas credenciales son las que se utilizan para el loginCarlos: <br>
@@ -130,7 +136,7 @@ Volver a ejecutar `./run.sh` para correr la aplicacion. <br>
     hydra -l su -P rockyou.txt -V "https-form-post://eshs2022.dsa.linti.unlp.edu.ar/loginCarlos:username=^USER^&password=^PASS^:F=Clave incorrecta"
     ```
 
-3. Una vez que se explota la vulnerabilidad, se obtiene el <br> `/infoUsuario?username=su` <br>
+Una vez que se explota la vulnerabilidad, se obtiene el <br> `/infoUsuario?username=su` <br>
 En este caso, se puede hacer una Inyeccion SQL para obtener datos de la Base de Datos. <br> 
 Si queremos acceder directamente a la flag, usamos el payload:
 
@@ -143,5 +149,7 @@ Si queremos acceder directamente a la flag, usamos el payload:
 
 ## Hint para el CTF
 
-La hint que proponemos es:
-- Pista para la pistita -> 64-62-58-45-32
+La hint que proponemos es: <br>
+Pista para la pistita -> 64-62-58-45-32
+
+</div>
